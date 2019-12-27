@@ -17,6 +17,14 @@ Create the database.
 Boot the app
 * docket-compose up
 
+Run specs
+(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
+* docker-compose run --rm web rspec
+
+Run rubocop
+(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
+* docker-compose run --rm web rubocop
+
 Things you may want to cover:
 
 * Ruby version
