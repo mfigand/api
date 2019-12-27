@@ -24,6 +24,8 @@ group :development, :test do
   gem 'pry'
   gem 'pry-byebug'
   gem 'pry-rails'
+  # testing with rspec
+  gem 'rspec-rails'
 end
 
 group :development do
@@ -34,8 +36,6 @@ group :development do
 end
 
 group :test do
-  # testing with rspec
-  gem 'rspec-rails'
   # express expected outcomes on collections of an object in an example
   gem 'rspec-collection_matchers'
   # one liners for common rails functionality
