@@ -3,12 +3,16 @@
     "coverage": {
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/environment.rb": [
         null,
+        null,
+        null,
         1,
         null,
         null,
         1
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/application.rb": [
+        null,
+        null,
         1,
         null,
         1,
@@ -46,12 +50,16 @@
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/boot.rb": [
+        null,
+        null,
         1,
         null,
         1,
         1
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/environments/test.rb": [
+        null,
+        null,
         1,
         null,
         null,
@@ -107,9 +115,13 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/initializers/backtrace_silencers.rb": [
+        null,
+        null,
         null,
         null,
         null,
@@ -134,9 +146,13 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/initializers/filter_parameter_logging.rb": [
+        null,
+        null,
         null,
         null,
         null,
@@ -158,15 +174,21 @@
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/initializers/mime_types.rb": [
         null,
         null,
         null,
+        null,
+        null,
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/initializers/wrap_parameters.rb": [
+        null,
+        null,
         null,
         null,
         null,
@@ -183,6 +205,8 @@
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/config/routes.rb": [
+        null,
+        null,
         1,
         null,
         1,
@@ -205,18 +229,27 @@
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/app/controllers/api/v1/ping_controller.rb": [
+        null,
+        null,
+        1,
+        1,
         1,
         1,
         null,
         1,
+        null,
+        null,
+        null,
         null,
         null
       ],
       "/Users/manuelfigueroa/Projects/api_postgres_jwt/api/app/controllers/application_controller.rb": [
+        null,
+        null,
         1,
         null
       ]
     },
-    "timestamp": 1577444868
+    "timestamp": 1577446447
   }
 }

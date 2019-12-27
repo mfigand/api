@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'ping routing' do
   subject { { get: '/ping' } }
-  let(:controller) { "api/v1/ping" }
+  let(:controller) { 'api/v1/ping' }
 
   it { expect(get: '/ping').to route_to('api/v1/ping#ping') }
   it do
