@@ -1,8 +1,8 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# API PROJECT
 
+Api base project with JWT, Device, Pundit, JSONSchema and RSpec. All containerized an ready to be use with whatever api project.
 Things you may want to cover:
 
 * Ruby version
@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
