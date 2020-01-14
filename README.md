@@ -4,7 +4,7 @@
 
 Api base project with JWT, Device, Pundit, JSONSchema and RSpec. All containerized an ready to be use with whatever api project.
 
-## Intall steps
+## Install steps
 
 From root:
 
@@ -15,7 +15,7 @@ Create the database.
 * docker-compose run web rake db:create
 
 Boot the app
-* docket-compose up
+* docker-compose up
 
 Run specs
 (--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
