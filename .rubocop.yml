@@ -4,6 +4,7 @@ AllCops:
     - db/schema.rb
     - db/migrate/*
     - spec/spec_helper.rb
+    - spec/rails_helper.rb
     - Gemfile
     - bin/*
 Rails:
@@ -12,3 +13,8 @@ Documentation:
     Enabled: false
 Metrics/LineLength:
   Max: 120
+Layout/LineLength:
+  Max: 112
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*'

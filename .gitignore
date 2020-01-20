@@ -23,6 +23,6 @@
 /config/master.key
 
 # Ignore coverage
-coverage
+coverage/assets
 coverage/.resultset.json
 coverage/index.html

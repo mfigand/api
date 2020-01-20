@@ -46,7 +46,7 @@ group :test do
   # one liners for common rails functionality
   gem 'shoulda-matchers'
   # test data generator
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   # Code coverage
   gem 'simplecov', require: false
   # Library for stubbing and setting expectations on HTTP requests in Ruby
