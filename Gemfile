@@ -38,6 +38,8 @@ group :development do
   gem 'spring-watcher-listen', '~> 2.0.0'
   # Automatic Rails code style checking tool.
   gem 'rubocop-rails'
+  # Code smells report
+  gem 'reek'
 end
 
 group :test do

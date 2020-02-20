@@ -2,6 +2,7 @@
 
 module Api
   module V1
+    # Health check
     class PingController < ApplicationController
       def ping
         # render json: { data: 'ok' }

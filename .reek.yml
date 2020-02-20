@@ -1,0 +1,7 @@
+---
+detectors:
+  IrresponsibleModule:
+    enabled: false
+  UncommunicativeModuleName:
+    exclude:
+      - V1
