@@ -9,6 +9,8 @@ Api base project with JWT, Device, Pundit, JSONSchema and RSpec. All containeriz
 From root:
 
 Build the image
+* ./run.sh build
+or
 * docker-compose build
 
 Create the database.
@@ -18,12 +20,25 @@ Boot the app
 * docker-compose up
 
 Run specs
+* ./run.sh test
+or
 (--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
 * docker-compose run --rm web rspec
 
+Run lints
+* ./run.sh lint
+
 Run rubocop
+* ./run.sh lint rubocop
+or
 (--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
 * docker-compose run --rm web rubocop
+
+Run reek
+* ./run.sh lint reek
+or
+(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
+* docker-compose run --rm web reek
 
 Things you may want to cover:
 
