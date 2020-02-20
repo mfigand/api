@@ -10,35 +10,24 @@ From root:
 
 Build the image
 * ./run.sh build
-or
-* docker-compose build
 
-Create the database.
-* docker-compose run web rake db:create
+Create the database (./run.sh db help)
+* ./run.sh db create
 
-Boot the app
-* docker-compose up
+Boot the app (./run.sh dev help)
+* ./run.sh dev server
 
-Run specs
+Run specs (./run.sh test help)
 * ./run.sh test
-or
-(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
-* docker-compose run --rm web rspec
 
 Run lints
 * ./run.sh lint
 
 Run rubocop
 * ./run.sh lint rubocop
-or
-(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
-* docker-compose run --rm web rubocop
 
 Run reek
 * ./run.sh lint reek
-or
-(--rm tell Docker daemon that once its done running, erase everything related to it and save the disk space)
-* docker-compose run --rm web reek
 
 Things you may want to cover:
 
@@ -47,18 +36,4 @@ Things you may want to cover:
 * System dependencies
   - docker
   - docker-compose
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
 

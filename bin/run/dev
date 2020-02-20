@@ -7,12 +7,6 @@ function print_help {
   - sh: run shell
   - console: run rails console
   - server: run dev server
-  - worker: run single worker
-  server:
-    options:
-      -d  daemon mode
-  worker:
-    arguments: workers names
 HELP
 }
 
@@ -28,7 +22,6 @@ case "$1" in
   sh) run_in_docker /bin/bash;;
   console) run_in_docker rails c;;
   server) shift; docker_wrapper up $@;;
-  worker) shift; docker_wrapper run --rm $@;;
   help) print_help; exit 0;;
   *) print_help; exit 1;;
 esac

@@ -1,6 +1,7 @@
 #!/bin/bash
 
 function run_in_docker {
+  # --rm tell Docker daemon that once its done running, erase everything related to it and save the disk space
   docker-compose run --rm web $@
 }
 
