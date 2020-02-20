@@ -9,10 +9,19 @@ AllCops:
     - bin/*
 Rails:
   Enabled: true
-Documentation:
+Rails/FilePath:
+  Exclude:
+    - config/environments/development.rb
+Style/Documentation:
     Enabled: false
-Metrics/LineLength:
+Layout/LineLength:
   Max: 120
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*'
+Style/HashEachMethods:
+  Enabled: true
+Style/HashTransformKeys:
+  Enabled: true
+Style/HashTransformValues:
+  Enabled: true
