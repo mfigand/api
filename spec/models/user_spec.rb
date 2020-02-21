@@ -19,6 +19,5 @@ RSpec.describe User, type: :model do
     it 'Invalidwithout a password' do
       expect(build(:user, password: nil)).not_to be_valid
     end
-
   end
 end
