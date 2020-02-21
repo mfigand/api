@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe 'ping requests' do
   describe 'GET /ping' do
-    subject(:endpoint_call) { get '/ping' }
+    subject(:endpoint_call) { get '/api/v1/ping' }
 
     it do
       subject
