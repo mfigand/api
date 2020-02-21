@@ -12,7 +12,9 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1', '>= 3.1.11'
+# A pure ruby implementation of the RFC 7519 OAuth JSON Web Token (JWT) standard.
+gem 'jwt'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -28,6 +30,8 @@ group :development, :test do
   gem 'pry-rails'
   # testing with rspec
   gem 'rspec-rails'
+  # Setting up Ruby objects as test data
+  gem 'factory_bot_rails'
 end
 
 group :development do
