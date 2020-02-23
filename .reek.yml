@@ -1,7 +1,15 @@
 ---
+exclude_paths:
+  - db/migrate
 detectors:
   IrresponsibleModule:
     enabled: false
   UncommunicativeModuleName:
     exclude:
       - V1
+  UncommunicativeVariableName:
+    exclude:
+      - e
+  NilCheck:
+    exclude:
+      - V1::AuthenticateInteractor#resolve
