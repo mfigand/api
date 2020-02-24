@@ -10,10 +10,6 @@ RSpec.describe User, type: :model do
       expect(create(:user)).to be_valid
     end
 
-    it 'Invalid without a name' do
-      expect(build(:user, name: nil)).not_to be_valid
-    end
-
     it 'Invalidwithout a email' do
       expect(build(:user, email: nil)).not_to be_valid
     end
