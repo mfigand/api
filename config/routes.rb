@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       get 'ping', to: 'ping#ping', as: 'ping'
 
       post 'authenticate', to: 'authentication#authenticate'
+
+      resources :users
     end
   end
 end
