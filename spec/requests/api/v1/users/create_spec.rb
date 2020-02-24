@@ -17,6 +17,7 @@ RSpec.describe 'create user requests' do
       it do
         subject
         expect(data_response).to include('email' => email)
+        expect(response).to have_http_status(200)
       end
     end
 
@@ -26,6 +27,7 @@ RSpec.describe 'create user requests' do
       it do
         subject
         expect(data_response).to eq("Error: Validation failed: Email can't be blank")
+        expect(response).to have_http_status(:unprocessable_entity)
       end
     end
   end

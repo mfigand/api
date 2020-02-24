@@ -14,3 +14,6 @@ detectors:
     exclude:
       - V1::AuthenticateInteractor#resolve
       - V1::Users::CreateInteractor#create
+  InstanceVariableAssumption:
+    exclude:
+      - ApplicationController

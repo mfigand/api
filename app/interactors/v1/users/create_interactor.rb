@@ -12,7 +12,7 @@ module V1
         if user&.try(:authenticate, @password)
           { data: ::V1::Users::ShowPresenter.new(user).serialize, status: 200 }
         else
-          { data: "Error: #{user[:error]}", status: :unauthorized }
+          { data: "Error: #{user[:error]}", status: :unprocessable_entity }
         end
       end
 
