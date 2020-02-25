@@ -9,7 +9,7 @@ function print_help {
   cat <<HELP
   ./run.sh lint <command> <arguments>
   commands:
-  - rubocop: run rubocop
+  - rubocop: run rubocop -a
   - reek: run reek
   - no_command: run rubocop reek
 HELP
@@ -21,6 +21,6 @@ case $1 in
   help)
     print_help; exit 0
     ;; 
-  *)  run_in_docker rubocop $@
+  *)  run_in_docker rubocop -a $@
       run_in_docker reek $@;;
 esac
