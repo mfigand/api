@@ -2,7 +2,13 @@
 
 # API PROJECT
 
-Api base project with JWT, Device, Pundit, JSONSchema and RSpec. All containerized an ready to be use with whatever api project.
+Containerized Api base project with:
+
+- Authentication base on JWT.
+- Role policies managed by Pundit.
+- Contracts ensurement with JSONSchema.
+- Automated tests with RSpec.
+- Code smell and style checking with reek and rubocop.
 
 ## Install steps
 
@@ -20,7 +26,7 @@ Boot the app (./run.sh dev help)
 Run specs (./run.sh test help)
 * ./run.sh test
 
-Run lints
+Run lints (rubocop -a && reek)
 * ./run.sh lint
 
 Run rubocop
@@ -31,7 +37,7 @@ Run reek
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version ruby-2.6.5
 
 * System dependencies
   - docker
