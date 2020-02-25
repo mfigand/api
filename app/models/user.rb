@@ -2,10 +2,13 @@
 
 class User < ApplicationRecord
   has_secure_password
-  validates :email, :password, presence: true
+  attr_accessor :skip_password
+
   validates :name, :lastname, length: { maximum: 250 }
-  validates :email, uniqueness: true
-  validates :password, format: { with: /\A[a-zA-ZÑñ0-9\ ]+\z/ }
+  validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, 
+                       format: { with: /\A[a-zA-ZÑñ0-9\ ]+\z/ },
+                       unless: :skip_password
   # validates :password, length: { minumum: 8 }
   # validates_each :password do |record, attr, value|
   #   record.errors.add(attr, 'must start with upper case') if value =~ /\A[[:lower:]]/

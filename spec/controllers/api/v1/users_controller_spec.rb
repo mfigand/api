@@ -12,6 +12,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   let(:valid_headers) do
     { 'Authentication' => auth_token }
   end
+  let(:new_name) { 'New name' } 
+  let(:update_params) do
+    { id: id, name: new_name}
+  end 
 
   before do
     request.headers.merge!(valid_headers)
@@ -33,7 +37,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
 
   describe '#update' do
     it do
-      patch :update, params: { id: id }
+      patch :update, params: update_params
       expect(response.status).to eq(200)
     end
   end

@@ -19,7 +19,8 @@ module Api
 
       def update
         updated = ::V1::Users::UpdateInteractor.new(current_user,
-                                                    save_params[:id]).update
+                                                    save_params[:id],
+                                                    update_params).update
         render json: { data: updated[:data] }, status: updated[:status]
       end
 
@@ -32,7 +33,13 @@ module Api
       private
 
       def save_params
-        params.permit(:id, :email, :password)
+        params.permit(:id, :name, :lastname, :email, :password)
+      end
+
+      def update_params
+        to_update = save_params.to_hash
+        to_update.delete('id')
+        to_update
       end
     end
   end
