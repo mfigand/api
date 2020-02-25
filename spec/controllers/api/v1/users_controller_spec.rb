@@ -3,13 +3,44 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::UsersController, type: :controller do
-  let(:params) do
+  let(:create_params) do
     { email: generate(:email), password: '12345678' }
+  end
+  let(:user) { create(:user) }
+  let(:id) { user.id }
+  let(:auth_token) { JsonWebToken.encode(user_id: user.id) }
+  let(:valid_headers) do
+    { 'Authentication' => auth_token }
+  end
+
+  before do
+    request.headers.merge!(valid_headers)
   end
 
   describe '#create' do
     it do
-      post :create, params: params
+      post :create, params: create_params
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe '#show' do
+    it do
+      get :show, params: { id: id }
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe '#update' do
+    it do
+      patch :update, params: { id: id }
+      expect(response.status).to eq(200)
+    end
+  end
+
+  describe '#destroy' do
+    it do
+      delete :destroy, params: { id: id }
       expect(response.status).to eq(200)
     end
   end
