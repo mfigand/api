@@ -11,8 +11,21 @@ module Api
         render json: { data: created[:data] }, status: created[:status]
       end
 
+      def show        
+        shown = ::V1::Users::ShowInteractor.new(current_user,
+                                                save_params[:id]).show
+        render json: { data: shown[:data] }, status: shown[:status]
+      end
+
+      def update
+        updated = ::V1::Users::UpdateInteractor.new(current_user,
+                                                    save_params[:id]).update
+        render json: { data: updated[:data] }, status: updated[:status]
+      end
+
       def destroy
-        destroyed = ::V1::Users::DestroyInteractor.new(save_params[:id]).destroy
+        destroyed = ::V1::Users::DestroyInteractor.new(current_user,
+                                                       save_params[:id]).destroy
         render json: { data: destroyed[:data] }, status: destroyed[:status]
       end
 

@@ -3,38 +3,26 @@
 module V1
   module Users
     class DestroyInteractor
-      def initialize(id)
+      def initialize(current_user, id)
+        @current_user = current_user
         @id = id
-        @error = nil
-        @status = nil
-        @user = nil
       end
 
       def destroy
-        if user.instance_of?(User) && policy
-          { data: ::V1::Users::DestroyRepository.new(user).destroy, status: :no_content }
-        else
-          { data: "Error: #{@error}", status: @status }
-        end
+        return ErrorService.new(user[:error], :not_found).create unless user.instance_of?(User)
+        return ApplicationPolicy.unauthorized_error unless allowed?
+
+        { data: ::V1::Users::DestroyRepository.new(user).destroy, status: :no_content }
       end
 
       private
 
-      def policy
-        # UserPolicy.new(current_user, user).destroy?
-        true
+      def allowed?
+        UserPolicy.new(@current_user, user).destroy?
       end
 
       def user
-        return @user if @user
-
-        user = ::V1::Users::FindRepository.new({ id: @id }).find
-        if user.instance_of?(User)
-          @user = user
-        else
-          @error = user[:error]
-          @status = :not_found
-        end
+        @user ||= ::V1::Users::FindRepository.new({ id: @id }).find
       end
     end
   end
