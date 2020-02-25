@@ -9,9 +9,8 @@ module V1
       end
 
       def update
-        @user.skip_password = true
         @user.update!(@update_attributes)
-        @user 
+        @user
       rescue ActiveRecord::RecordInvalid => e
         { error: e.message }
       end

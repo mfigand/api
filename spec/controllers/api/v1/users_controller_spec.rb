@@ -12,10 +12,10 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   let(:valid_headers) do
     { 'Authentication' => auth_token }
   end
-  let(:new_name) { 'New name' } 
+  let(:new_name) { 'New name' }
   let(:update_params) do
-    { id: id, name: new_name}
-  end 
+    { id: id, name: new_name }
+  end
 
   before do
     request.headers.merge!(valid_headers)
@@ -45,7 +45,7 @@ RSpec.describe Api::V1::UsersController, type: :controller do
   describe '#destroy' do
     it do
       delete :destroy, params: { id: id }
-      expect(response.status).to eq(200)
+      expect(response).to have_http_status(:no_content)
     end
   end
 end

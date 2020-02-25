@@ -11,7 +11,7 @@ module Api
         render json: { data: created[:data] }, status: created[:status]
       end
 
-      def show        
+      def show
         shown = ::V1::Users::ShowInteractor.new(current_user,
                                                 save_params[:id]).show
         render json: { data: shown[:data] }, status: shown[:status]
