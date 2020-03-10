@@ -4,6 +4,7 @@ module Api
   module V1
     class UsersController < ApplicationController
       before_action :authenticate_user, except: [:create]
+      before_action :validate_schema
 
       def create
         created = ::V1::Users::CreateInteractor.new(save_params[:email],
@@ -40,6 +41,10 @@ module Api
         to_update = save_params.to_hash
         to_update.delete('id')
         to_update
+      end
+
+      def validate_schema
+        JsonSchemaService.new(action_name, controller_name, save_params.to_hash).validate
       end
     end
   end
