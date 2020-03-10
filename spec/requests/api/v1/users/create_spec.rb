@@ -30,5 +30,14 @@ RSpec.describe 'create user requests' do
         expect(data_response).to eq("Error: Validation failed: Email can't be blank")
       end
     end
+
+    context 'invalid schema' do
+      let(:params) { }
+
+      it do
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(data_response).to eq("The property '#/user' did not contain a required property of 'email'")
+      end
+    end
   end
 end

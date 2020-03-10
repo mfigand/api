@@ -9,29 +9,33 @@ module Api
       def create
         created = ::V1::Users::CreateInteractor.new(save_params[:email],
                                                     save_params[:password]).create
-        render json: { data: created[:data] }, status: created[:status]
+        json_response(created)
       end
 
       def show
         shown = ::V1::Users::ShowInteractor.new(current_user,
                                                 save_params[:id]).show
-        render json: { data: shown[:data] }, status: shown[:status]
+        json_response(shown)
       end
 
       def update
         updated = ::V1::Users::UpdateInteractor.new(current_user,
                                                     save_params[:id],
                                                     update_params).update
-        render json: { data: updated[:data] }, status: updated[:status]
+        json_response(updated)
       end
 
       def destroy
         destroyed = ::V1::Users::DestroyInteractor.new(current_user,
                                                        save_params[:id]).destroy
-        render json: { data: destroyed[:data] }, status: destroyed[:status]
+        json_response(destroyed)
       end
 
       private
+
+      def json_response(result)
+        render json: { data: result[:data] }, status: result[:status]
+      end
 
       def save_params
         params.permit(:id, :name, :lastname, :email, :password)
@@ -44,7 +48,8 @@ module Api
       end
 
       def validate_schema
-        JsonSchemaService.new(action_name, controller_name, save_params.to_hash).validate
+        valid = JsonSchemaService.new(action_name, controller_name, save_params.to_hash).validate        
+        json_response(valid) unless valid == true
       end
     end
   end

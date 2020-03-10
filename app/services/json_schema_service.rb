@@ -8,7 +8,9 @@ class JsonSchemaService
   end
 
   def validate
-    JSON::Validator.validate(json_schema, json_to_validate)
+    JSON::Validator.validate!(json_schema, json_to_validate)
+  rescue JSON::Schema::ValidationError => e
+    { data: e.message, status: :unprocessable_entity }
   end
 
   private
