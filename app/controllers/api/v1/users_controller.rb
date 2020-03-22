@@ -6,6 +6,17 @@ module Api
       before_action :authenticate_user, except: [:create]
       before_action :validate_schema
 
+      swagger_controller :users, "User Management"
+
+      swagger_api :create do
+        summary "Creates a new User"
+        param :form, :first_name, :string, :required, "First name"
+        param :form, :last_name, :string, :required, "Last name"
+        param :form, :email, :string, :required, "Email address"
+        param_list :form, :role, :string, :required, "Role", [ "admin", "superadmin", "user" ]
+        response :unauthorized
+        response :not_acceptable
+      end
       def create
         created = ::V1::Users::CreateInteractor.new(save_params[:email],
                                                     save_params[:password]).create

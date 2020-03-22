@@ -29,3 +29,6 @@
 coverage/assets
 coverage/.resultset.json
 coverage/index.html
+
+## Ignore Swagger JSON files.
+public/apidocs/
