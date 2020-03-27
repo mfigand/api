@@ -34,8 +34,19 @@ RSpec.describe 'update user requests' do
     context 'valid token but not allow to update' do
       let(:id) { user_not_allow_to_update.id }
 
-      it do
+      it 'unauthorized user' do
         expect(response).to have_http_status(:unauthorized)
+      end
+    end
+
+    context 'cannot update' do
+      let(:update_params) do
+        { id: user.id, name: name_to_update, password: '123' }
+      end
+
+      it 'validation failed' do
+        expect(response).to have_http_status(:unprocessable_entity)
+        expect(data_response).to eq('Error: Validation failed: Password is too short (minimum is 8 characters)')
       end
     end
 

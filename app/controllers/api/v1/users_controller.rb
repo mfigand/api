@@ -6,20 +6,21 @@ module Api
       before_action :authenticate_user, except: [:create]
       before_action :validate_schema
 
-      swagger_controller :users, "User Management"
+      swagger_controller :users, 'User Management'
 
       swagger_api :create do
-        summary "Creates a new User"
-        param :form, :first_name, :string, :required, "First name"
-        param :form, :last_name, :string, :required, "Last name"
-        param :form, :email, :string, :required, "Email address"
-        param_list :form, :role, :string, :required, "Role", [ "admin", "superadmin", "user" ]
+        summary 'Creates a new User'
+        param :form, :first_name, :string, :required, 'First name'
+        param :form, :last_name, :string, :required, 'Last name'
+        param :form, :email, :string, :required, 'Email address'
+        param_list :form, :role, :string, :required, 'Role', %w[admin superadmin user]
         response :unauthorized
         response :not_acceptable
       end
       def create
         created = ::V1::Users::CreateInteractor.new(save_params[:email],
-                                                    save_params[:password]).create
+                                                    save_params[:password],
+                                                    save_params[:role_id]).create
         json_response(created)
       end
 
@@ -49,7 +50,7 @@ module Api
       end
 
       def save_params
-        params.permit(:id, :name, :lastname, :email, :password)
+        params.permit(:id, :name, :lastname, :email, :password, :role_id)
       end
 
       def update_params
@@ -59,7 +60,7 @@ module Api
       end
 
       def validate_schema
-        valid = JsonSchemaService.new(action_name, controller_name, save_params.to_hash).validate        
+        valid = JsonSchemaService.new(action_name, controller_name, save_params.to_hash).validate
         json_response(valid) unless valid == true
       end
     end

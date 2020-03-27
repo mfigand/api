@@ -17,8 +17,8 @@ From root:
 Build the image
 * ./run.sh build
 
-Create the database (./run.sh db help)
-* ./run.sh db create
+Prepare the database (./run.sh db help)
+* ./run.sh db prepare
 
 Boot the app (./run.sh dev help)
 * ./run.sh dev server
@@ -43,3 +43,12 @@ Things you may want to cover:
   - docker
   - docker-compose
 
+
+## Debug with pry
+
+* Steps:
+
+- Add 'binding.pry' in the breakpoint you want to set
+- Run app
+- Get container id with '$ docker ps' or '$ ctop'
+- Attach to the container with it's id '$ docker attach container_id'

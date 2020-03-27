@@ -12,5 +12,6 @@ FactoryBot.define do
     lastname { 'Lastname' }
     email { generate :email }
     password { '12345678' }
+    role_id { create(:role).id }
   end
 end

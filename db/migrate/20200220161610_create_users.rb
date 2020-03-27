@@ -1,3 +1,6 @@
+# frozen_string_literal: true
+
+# rubocop:disable all
 class CreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
@@ -5,6 +8,8 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :lastname, index: true
       t.string :email, null: false, unique: true, index: true
       t.string :password_digest, null: false, index: true
+      t.integer :role_id, null: false, index: true
+      t.datetime :deleted_at, index: true
 
       t.timestamps
     end
@@ -13,3 +18,4 @@ class CreateUsers < ActiveRecord::Migration[6.0]
     add_index :users, :updated_at
   end
 end
+# rubocop:enable all

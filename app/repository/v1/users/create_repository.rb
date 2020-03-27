@@ -3,9 +3,10 @@
 module V1
   module Users
     class CreateRepository
-      def initialize(email, password)
+      def initialize(email, password, role_id)
         @email = email
         @password = password
+        @role_id = role_id
       end
 
       def create

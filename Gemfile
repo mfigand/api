@@ -21,7 +21,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 # Minimal authorization through OO design and pure Ruby classes
-gem "pundit"
+gem 'pundit'
 # Ruby JSON Schema Validator
 gem 'json-schema'
 # Generates swagger-ui json files for Rails APIs with a simple DSL.
@@ -29,7 +29,7 @@ gem 'swagger-docs'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
   # irb alternative
   gem 'pry'
   gem 'pry-byebug'
@@ -57,8 +57,6 @@ group :test do
   gem 'rspec-collection_matchers'
   # one liners for common rails functionality
   gem 'shoulda-matchers'
-  # test data generator
-  gem 'factory_bot_rails'
   # Code coverage
   gem 'simplecov', require: false
   # Library for stubbing and setting expectations on HTTP requests in Ruby
@@ -68,4 +66,4 @@ group :test do
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]

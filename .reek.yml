@@ -17,3 +17,6 @@ detectors:
   InstanceVariableAssumption:
     exclude:
       - ApplicationController
+  FeatureEnvy:
+    exclude:
+      - Api::V1::UsersController#json_response

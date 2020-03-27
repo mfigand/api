@@ -8,8 +8,9 @@ RSpec.describe 'create user requests' do
 
     let(:email) { generate(:email) }
     let(:password) { '12345678' }
+    let(:role) { create(:role) }
     let(:params) do
-      { email: email, password: password }
+      { email: email, password: password, role_id: role.id }
     end
     let(:data_response) { JSON.parse(response.body)['data'] }
 
@@ -32,7 +33,7 @@ RSpec.describe 'create user requests' do
     end
 
     context 'invalid schema' do
-      let(:params) { }
+      let(:params) {}
 
       it do
         expect(response).to have_http_status(:unprocessable_entity)
